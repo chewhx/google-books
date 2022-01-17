@@ -37,7 +37,3 @@ const googleBooks: (
 };
 
 export default googleBooks;
-
-googleBooks("james clear", { maxResults: 3 })
-  .then((res) => console.log(res.items))
-  .catch((e) => console.error(e));

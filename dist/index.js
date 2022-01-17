@@ -31,10 +31,8 @@ const googleBooks = (_query, _options) => __awaiter(void 0, void 0, void 0, func
         queryString += (0, options_1.default)(_query);
         requestParams = new RequestParams_1.default(Object.assign({ q: queryString }, _query));
     }
+    console.log(requestParams);
     const { data } = yield (0, api_1.default)({ method, params: requestParams });
     return data;
 });
 exports.default = googleBooks;
-googleBooks("james clear", { maxResults: 3 })
-    .then((res) => console.log(res.items))
-    .catch((e) => console.error(e));

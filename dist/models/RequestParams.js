@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class RequestParams {
     constructor(params) {
-        this.q = params.q || "";
+        this.q = params.q.trim() || "";
         this.download = params.download || undefined;
         this.filter = params.filter || undefined;
         this.langRestrict = params.langRestrict || "en";

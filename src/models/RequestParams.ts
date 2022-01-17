@@ -24,7 +24,7 @@ export default class RequestParams implements IRequestParams {
   volumeId?: string;
 
   constructor(params:IRequestParams) {
-    this.q = params.q || "";
+    this.q = params.q.trim() || "";
     this.download = params.download || undefined;
     this.filter = params.filter || undefined;
     this.langRestrict = params.langRestrict || "en";
