@@ -1,5 +1,5 @@
 {
-  "name": "google-books-api",
+  "name": "@chewhx/google-books",
   "version": "0.1.0",
   "description": "Search for books on Google Books",
   "main": "./dist/index.js",
