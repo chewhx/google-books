@@ -1,6 +1,6 @@
 {
   "name": "google-books",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Search for books on Google Books",
   "main": "./dist/index.js",
   "scripts": {
@@ -24,5 +24,9 @@
   },
   "dependencies": {
     "axios": "^0.24.0"
+  },
+  "repository": {
+    "url": "https://github.com/chewhx/google-books",
+    "directory": "https://github.com/chewhx/google-books"
   }
 }
