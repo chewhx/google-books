@@ -15,7 +15,7 @@
     "books",
     "search"
   ],
-  "author": "Chew Han Xiang",
+  "author": "Chew Han Xiang <hello@chewhx.com>",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.0.0",
@@ -27,6 +27,6 @@
   },
   "repository": {
     "url": "https://github.com/chewhx/google-books",
-    "directory": "https://github.com/chewhx/google-books"
+    "type": "git"
   }
 }
