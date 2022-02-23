@@ -1,32 +1,35 @@
 {
-  "name": "@chewhx/google-books",
-  "version": "0.1.1",
-  "description": "Search for books on Google Books",
-  "main": "./dist/index.js",
-  "scripts": {
-    "watch:tsc": "tsc --watch",
-    "build:tsc": "tsc",
-    "rebuild:tsc": "rm -rf dist && npm run build:tsc",
-    "watch:app": "nodemon ./dist/index.js",
-    "dev": "concurrently \"npm run watch:tsc\" && \"npm run watch:app\""
-  },
-  "keywords": [
-    "google",
-    "books",
-    "search"
-  ],
-  "author": "Chew Han Xiang <hello@chewhx.com>",
-  "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^7.0.0",
-    "nodemon": "^2.0.15",
-    "typescript": "^4.5.4"
-  },
-  "dependencies": {
-    "axios": "^0.24.0"
-  },
-  "repository": {
-    "url": "https://github.com/chewhx/google-books",
-    "type": "git"
-  }
+	"name": "@chewhx/google-books",
+	"version": "0.1.1",
+	"description": "Search for books on Google Books",
+	"main": "./dist/index.js",
+	"scripts": {
+		"watch:tsc": "tsc --watch",
+		"build:tsc": "tsc",
+		"dev": "ts-node src/index.ts",
+		"format": "prettier -w src",
+		"test": "jest --timeout=10000"
+	},
+	"keywords": [
+		"google",
+		"books",
+		"search"
+	],
+	"author": "Chew Han Xiang <hello@chewhx.com>",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/jest": "^27.4.0",
+		"jest": "^27.5.1",
+		"prettier": "^2.5.1",
+		"ts-jest": "^27.1.3",
+		"ts-node": "^10.5.0",
+		"typescript": "^4.5.4"
+	},
+	"dependencies": {
+		"axios": "^0.24.0"
+	},
+	"repository": {
+		"url": "https://github.com/chewhx/google-books",
+		"type": "git"
+	}
 }
