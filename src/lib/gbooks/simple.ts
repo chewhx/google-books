@@ -1,10 +1,10 @@
 import { ApiQueryParameters } from '../../types/ApiQueryParameters';
-import { StandardQueryParamaters } from '../../types/StandardQueryParamaters';
+import { StandardQueryParameters } from '../../types/StandardQueryParameters';
 import query from './search';
 
 export default async (
 	q: string = '',
-	standardQueryParams?: StandardQueryParamaters,
+	standardQueryParams?: StandardQueryParameters,
 	apiQueryParams?: ApiQueryParameters
 ) => {
 	const data = await query(q, standardQueryParams, apiQueryParams);

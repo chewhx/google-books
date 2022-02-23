@@ -10,5 +10,6 @@ exports.default = async (q = '', standardQueryParams, apiQueryParams) => {
         standardQueryParams = {};
     }
     const queryString = (0, parseIntoQueryString_1.default)(standardQueryParams) || '';
-    return await (0, api_1.default)(q + '+' + queryString, apiQueryParams || {});
+    const { data } = await (0, api_1.default)(q + '+' + queryString, apiQueryParams || {});
+    return data;
 };

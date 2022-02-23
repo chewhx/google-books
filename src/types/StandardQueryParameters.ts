@@ -1,4 +1,4 @@
-export type StandardQueryParamaters = {
+export type StandardQueryParameters = {
 	intitle?: string;
 	inauthor?: string[] | string;
 	inpublisher?: string[] | string;

@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const search_1 = __importDefault(require("./search"));
 exports.default = async (q = '', standardQueryParams, apiQueryParams) => {
-    const { status, data } = await (0, search_1.default)(q, standardQueryParams, apiQueryParams);
+    const data = await (0, search_1.default)(q, standardQueryParams, apiQueryParams);
     const newItems = data.items.map((each) => ({
         id: each.id,
         title: each.volumeInfo.title || '',
@@ -15,5 +15,5 @@ exports.default = async (q = '', standardQueryParams, apiQueryParams) => {
         image: `https://books.google.com/books/publisher/content/images/frontcover/${each.id}?fife=h1000`,
         categories: each.volumeInfo.categories,
     }));
-    return { status, data: Object.assign(Object.assign({}, data), { items: newItems }) };
+    return Object.assign(Object.assign({}, data), { items: newItems });
 };

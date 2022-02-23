@@ -7,5 +7,6 @@ const parseIntoQueryString_1 = __importDefault(require("../../helpers/parseIntoQ
 const api_1 = __importDefault(require("../api"));
 exports.default = async (standardQueryParams, apiQueryParams) => {
     const queryString = (0, parseIntoQueryString_1.default)(standardQueryParams);
-    return await (0, api_1.default)(standardQueryParams.q + '+' + queryString, apiQueryParams || {});
+    const { data } = await (0, api_1.default)(standardQueryParams.q + '+' + queryString, apiQueryParams || {});
+    return data;
 };
