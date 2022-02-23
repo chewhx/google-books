@@ -4,8 +4,9 @@
 	"description": "Search for books on Google Books",
 	"main": "./dist/index.js",
 	"scripts": {
-		"watch:tsc": "tsc --watch",
-		"build:tsc": "tsc",
+		"watch": "tsc --watch",
+		"rebuild": "rm dist && tsc",
+		"build": "tsc",
 		"dev": "ts-node src/index.ts",
 		"format": "prettier -w src",
 		"test": "jest --timeout=10000"
