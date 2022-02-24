@@ -2,11 +2,29 @@
 
 NodeJS Wrapper to search for books on [Google Books API](https://developers.google.com/books/docs/overview).
 
+  - [Installation](#installation)
+  - [Report issues or bugs](#report-issues-or-bugs)
+  - [Demo](#demo)
+  - [Documentation](#documentation)
+    - [Require syntax](#require-syntax)
+    - [Import syntax](#import-syntax)
+    - [`search`](#search)
+    - [`query`](#query)
+    - [`simple`](#simple)
+    - [`bookId`](#bookid)
+  - [Options](#options)
+    - [StandardQueryParameters](#standardqueryparameters)
+    - [ApiQueryParameters](#apiqueryparameters)
+
 ## Installation
 
 ```bash
   npm i @chewhx/google-books
 ```
+
+## Report issues or bugs
+
+Create a new issue [here](https://github.com/chewhx/google-books/issues). Set the label to "bug".
 
 ## Demo
 
@@ -54,18 +72,18 @@ Results
 
 ## Documentation
 
-There are three main functions: `search`, `query` and `simple`.
+There are three main functions: `search`, `query`, `simple` and `bookId`.
 
 They are async functions. You have to `await` and `catch` errors yourself.
 
 ### Require syntax
 
 ```javascript
-// Import all three functions
+// Require all functions
 const gbooks = require('@chewhx/google-books');
 
-// Import specific functions
-const { search, query, simple } = require('@chewhx/google-books');
+// Require specific functions
+const { search, query, simple, bookId } = require('@chewhx/google-books');
 ```
 
 ### Import syntax
@@ -75,7 +93,7 @@ const { search, query, simple } = require('@chewhx/google-books');
 import * as gbooks from '@chewhx/google-books';
 
 // Import specific functions
-import { search, query, simple } from '@chewhx/google-books';
+import { search, query, simple, bookId } from '@chewhx/google-books';
 ```
 
 ### `search`
@@ -99,9 +117,11 @@ search(
 
 Almost the same as `search`, except it assumes you would like to search or query with more details. You must provide standard query parameters.
 
+**Note: Only `q` is required to search. All other StandardQueryParameters are optional**
+
 ```typescript
 query(
-	standardQueryParams: StandardQueryParameters,
+	standardQueryParams: { q: string } & StandardQueryParameters,
 	apiQueryParams?: ApiQueryParameters
 )
 .then((res) => console.log(res))
@@ -136,3 +156,45 @@ Results
 	"categories": ["Business & Economics"]
 }
 ```
+
+### `bookId`
+
+Find a particular book by id.
+Set _dataType_ as 'simple' to get concise results. Otherwise leave blank or explicitly set as 'original'
+to get original results.
+
+```typescript
+bookId(
+	bookId: string,
+  dataType?: 'simple' | 'original'
+)
+.then((res) => console.log(res))
+.catch((err) => console.log(err))
+```
+
+## Options
+
+### StandardQueryParameters
+
+Refer to official [docs](https://developers.google.com/books/docs/v1/using#PerformingSearch) for more details
+
+- q: string; **(required for `query` function, not present in others)**
+- intitle?: string;
+- inauthor?: string[] | string;
+- inpublisher?: string[] | string;
+- subject?: string[] | string;
+- isbn?: string[] | string;
+- lccn?: string[] | string;
+- oclc?: string[] | string;
+
+### ApiQueryParameters
+
+Refer to official [docs](https://developers.google.com/books/docs/v1/using#api_params) for more details
+
+- intitle?: string;
+- inauthor?: string[] | string;
+- inpublisher?: string[] | string;
+- subject?: string[] | string;
+- isbn?: string[] | string;
+- lccn?: string[] | string;
+- oclc?: string[] | string;

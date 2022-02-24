@@ -35,3 +35,14 @@ describe('Test gbooks.simple()', () => {
 		});
 	});
 });
+
+describe('Test gbooks.bookId()', () => {
+	it('Is successful', () => {
+		return gbooks.bookId('lFhbDwAAQBAJ').then((data) => {
+			expect(data.id).toBe('lFhbDwAAQBAJ');
+			expect(data.selfLink).toBe(
+				'https://www.googleapis.com/books/v1/volumes/lFhbDwAAQBAJ'
+			);
+		});
+	});
+});
