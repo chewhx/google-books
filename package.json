@@ -23,8 +23,8 @@
     "type": "git"
   },
   "scripts": {
-    "watch": "tsup src watch --sourcemap --format esm,cjs --declaration",
-    "build": "tsup src --sourcemap --format esm,cjs --declaration",
+    "watch": "tsup watch src --format esm,cjs",
+    "build": "tsup src --format esm,cjs && tsc --rootDir src --outDir dist --declarationMap",
     "test": "jest"
   },
   "module": "dist/google-books.esm.js",
