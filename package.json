@@ -1,6 +1,6 @@
 {
   "name": "@chewhx/google-books",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Search for books on Google Books",
   "author": "Chew Han Xiang <hello@chewhx.com>",
   "license": "MIT",
@@ -23,8 +23,8 @@
     "type": "git"
   },
   "scripts": {
-    "watch": "tsup src watch",
-    "build": "tsup src",
+    "watch": "tsup src watch --sourcemap --format esm,cjs --declaration",
+    "build": "tsup src --sourcemap --format esm,cjs --declaration",
     "test": "jest"
   },
   "module": "dist/google-books.esm.js",
