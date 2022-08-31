@@ -1,23 +1,27 @@
-import books from '../src/index';
+import * as gbooks from "../src/index";
 
-describe('Test search', () => {
-  const search = books.search;
-  const volumeId = books.volumeId;
-
-  it('Is defined', () => {
-    expect(search).toBeDefined();
+describe("Test search", () => {
+  it("gbooks.standard is defined", () => {
+    expect(gbooks.standard).toBeDefined();
   });
 
-  it('Search returns results', async () => {
-    const res = await search({ q: 'Atomic Habits' });
-    expect(Object.keys(res)).toMatchObject(['kind', 'totalItems', 'items']);
+  it("gbooks.search is defined", () => {
+    expect(gbooks.search).toBeDefined();
   });
 
-  it('Search for book by volume id', async () => {
-    const res = await volumeId('lFhbDwAAQBAJ');
-    expect(res.id).toBe('lFhbDwAAQBAJ');
-    expect(res.selfLink).toBe(
-      'https://www.googleapis.com/books/v1/volumes/lFhbDwAAQBAJ'
-    );
+  it("gbooks.id is defined", () => {
+    expect(gbooks.id).toBeDefined();
+  });
+
+  it("gbooks.title is defined", () => {
+    expect(gbooks.title).toBeDefined();
+  });
+
+  it("gbooks.author is defined", () => {
+    expect(gbooks.author).toBeDefined();
+  });
+
+  it("gbooks.isbn is defined", () => {
+    expect(gbooks.isbn).toBeDefined();
   });
 });

@@ -2,7 +2,7 @@
   "name": "@chewhx/google-books",
   "version": "2.0.0",
   "description": "Search for books on Google Books",
-	"author": "Chew Han Xiang <hello@chewhx.com>",
+  "author": "Chew Han Xiang <hello@chewhx.com>",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -11,10 +11,10 @@
     "src"
   ],
   "keywords": [
-		"google",
-		"books",
-		"search"
-	],
+    "google",
+    "books",
+    "search"
+  ],
   "engines": {
     "node": ">=10"
   },
@@ -23,18 +23,9 @@
     "type": "git"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
+    "watch": "tsup src watch",
+    "build": "tsup src",
+    "test": "jest"
   },
   "module": "dist/google-books.esm.js",
   "size-limit": [
@@ -49,11 +40,12 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^7.0.8",
-    "husky": "^8.0.1",
+    "@types/jest": "^29.0.0",
     "prettier": "^2.6.2",
     "size-limit": "^7.0.8",
-    "tsdx": "^0.14.1",
+    "ts-jest": "^28.0.8",
     "tslib": "^2.4.0",
+    "tsup": "^6.2.3",
     "typescript": "^4.6.4"
   },
   "dependencies": {
