@@ -1,57 +1,54 @@
-import makeQueryString from "./helpers/makeQueryString";
-import api, { apiGetWithParams } from "./lib/api";
-import { ApiQueryParameters } from "./types/ApiQueryParameters";
-import { StandardQueryParameters } from "./types/StandardQueryParameters";
+import { Schema$Volume2 } from './types/Resource';
+import { Params } from './types/Params';
+import { Query } from './types/Query';
 
-export { standard, search, id, title, author, isbn };
+const url = new URL('https://www.googleapis.com/books/v1/volumes');
 
-async function standard(
-  standardParams: StandardQueryParameters,
-  apiParams?: ApiQueryParameters
-): Promise<any> {
-  const q = makeQueryString(standardParams);
-  const params = { q, ...apiParams };
-  const { data } = await apiGetWithParams(params);
-  return data;
-}
+export async function search(
+	{ q, intitle, inauthor, inpublisher, subject, isbn, lccn, oclc }: Query,
+	params?: Params
+): Promise<Schema$Volume2> {
+	// Attach query strings to 'q'
+	if (intitle) {
+		q += `intitle:${intitle}`;
+	}
 
-async function id(volumeId: string): Promise<any> {
-  const { data } = await api({ method: "get", url: `/${volumeId}` });
-  return data;
-}
+	if (inauthor) {
+		q += `inauthor:${inauthor}`;
+	}
+	if (inpublisher) {
+		q += `inpublisher:${inpublisher}`;
+	}
 
-async function search(
-  searchTerm: string,
-  standardParams?: Omit<StandardQueryParameters, "q">,
-  apiParams?: ApiQueryParameters
-) {
-  const _standardParams: StandardQueryParameters = {
-    q: searchTerm,
-    ...standardParams
-  };
-  const q = makeQueryString(_standardParams);
-  const params = { q, ...apiParams };
-  const { data } = await apiGetWithParams(params);
-  return data;
-}
+	if (subject) {
+		q += `subject:${subject}`;
+	}
 
-async function title(searchTitle: string, apiParams?: ApiQueryParameters) {
-  const q = makeQueryString({ q: searchTitle, intitle: searchTitle });
-  const params = { q, ...apiParams };
-  const { data } = await apiGetWithParams(params);
-  return data;
-}
+	if (isbn) {
+		q += `isbn:${isbn}`;
+	}
 
-async function author(searchAuthor: string, apiParams?: ApiQueryParameters) {
-  const q = makeQueryString({ q: searchAuthor, inauthor: searchAuthor });
-  const params = { q, ...apiParams };
-  const { data } = await apiGetWithParams(params);
-  return data;
-}
+	if (lccn) {
+		q += `lccn:${lccn}`;
+	}
 
-async function isbn(searchIsbn: string, apiParams?: ApiQueryParameters) {
-  const q = makeQueryString({ q: searchIsbn, isbn: searchIsbn });
-  const params = { q, ...apiParams };
-  const { data } = await apiGetWithParams(params);
-  return data;
+	if (oclc) {
+		q += `oclc:${oclc}`;
+	}
+
+	url.searchParams.set('q', q);
+
+	// Attach params
+	if (params) {
+		const arrayOfParams = Object.entries(params);
+		arrayOfParams.forEach(([key, value]) => {
+			url.searchParams.set(key, String(value));
+		});
+	}
+
+	const res = await fetch(url, { method: 'GET' });
+
+	const json = await res.json();
+
+	return json;
 }
