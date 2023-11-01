@@ -1,6 +1,11 @@
-export type ApiQueryParameters = {
+export type Params = {
+  /**	Restrict to volumes by download availability. Currently, the only supported value is epub. */
 	download?: 'epub';
+
+  /** Filter search results by volume type and availability. */
 	filter?: 'partial' | 'full' | 'free-ebooks' | 'paid-ebooks' | 'ebooks';
+
+  /** Restricts the volumes returned to those that are tagged with the specified language. */
 	langRestrict?:
 		| 'aa'
 		| 'ab'
@@ -186,10 +191,21 @@ export type ApiQueryParameters = {
 		| 'za'
 		| 'zh'
 		| 'zu';
+  /** The maximum number of elements to return with this request. */
 	maxResults?: number;
+
+  /** The maximum number of elements to return with this request. */
 	orderBy?: 'relevance' | 'newest';
+
+  /** Restrict to books or magazines. */
 	printType?: 'all' | 'books' | 'magazines';
+
+  /** Restrict volume information returned to a subset of fields. */
 	projection?: 'full' | 'lite';
+
+  /** The position in the collection at which to start the list of results. */
 	startIndex?: number;
+
+  /** Identifies a volume associated with the request. */
 	volumeId?: string;
 };
