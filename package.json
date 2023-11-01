@@ -1,9 +1,9 @@
 {
 	"name": "@chewhx/google-books",
-	"version": "3.0.1",
+	"version": "4.0.0",
 	"description": "Search for books on Google Books",
 	"author": "Chew Han Xiang <hello@chewhx.com>",
-	"license": "Apache-2.0",
+	"license": "MIT",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"files": [
