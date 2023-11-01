@@ -73,7 +73,7 @@ search({ q: 'Atomic Habits' }, { maxResults: 2 });
 search({ q: 'Atomic Habits' }, { download: 'epub' });
 ```
 
-### `id`
+## `id`
 
 Search for book with google books volume id
 
@@ -81,7 +81,7 @@ Search for book with google books volume id
 id('lFhbDwAAQBAJ');
 ```
 
-### `title`
+## `title`
 
 Search for book with only title
 
@@ -89,7 +89,7 @@ Search for book with only title
 title('atomic habits');
 ```
 
-### `author`
+## `author`
 
 Search for book with only author
 
@@ -97,7 +97,7 @@ Search for book with only author
 author('James Clear');
 ```
 
-### `isbn`
+## `isbn`
 
 Search for book with only isbn
 
